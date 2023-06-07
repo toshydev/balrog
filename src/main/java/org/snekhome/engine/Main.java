@@ -23,6 +23,5 @@ public class Main extends JFrame implements KeyListener {
     public static void main(String[] args) {
         Paint game = new Paint();
         System.out.println("Hello there!");
-        System.out.println("Triggering CI with Github Actions");
     }
 }
