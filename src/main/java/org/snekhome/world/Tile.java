@@ -5,7 +5,8 @@ import java.awt.Color;
 public enum Tile {
     WALL((char)178, Color.GRAY),
     GROUND((char)255, Color.DARK_GRAY),
-    EMEMY((char)197, Color.RED);
+    EMEMY((char)197, Color.RED),
+    ENEMY_DEAD((char)170, Color.GRAY);
     private Color color;
     private char glyph;
 

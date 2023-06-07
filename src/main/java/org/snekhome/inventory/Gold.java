@@ -11,7 +11,16 @@ public class Gold extends Item {
         this.usable = false;
     }
 
+    public void stack(Gold gold) {
+        this.count += gold.count;
+        gold = null;
+    }
+
     public String toString() {
         return String.format("%d gold", count);
+    }
+
+    public static void main(String[] args) {
+
     }
 }

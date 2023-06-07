@@ -4,7 +4,7 @@ import org.snekhome.environment.Type;
 
 import java.util.Objects;
 
-public class Item {
+public abstract class Item {
     public String description;
     public Type type;
     public boolean usable;
