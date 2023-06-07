@@ -39,8 +39,8 @@ public class World {
         for (int i = 0; i < 5; i++) {
             Enemy enemy = new Enemy(String.format("Monster#%d", i));
             Random random = new Random();
-            enemy.posX = random.nextInt(2, width - 2);
-            enemy.posY = random.nextInt(2, height - 2);
+            enemy.posX = random.nextInt(3, width - 3);
+            enemy.posY = random.nextInt(3, height - 3);
             addEnemy(enemy);
         }
     }
@@ -54,7 +54,11 @@ public class World {
     public void populatePlane() {
         for (Enemy enemy : enemies) {
             if ((enemy.posX > 2 && enemy.posX < width - 2) && (enemy.posY > 2 && enemy.posY < height - 2)) {
-                this.plane[enemy.posX][enemy.posY] = Tile.EMEMY;
+                if (enemy.isAlive) {
+                    this.plane[enemy.posX][enemy.posY] = Tile.EMEMY;
+                } else {
+                    this.plane[enemy.posX][enemy.posY] = Tile.ENEMY_DEAD;
+                }
             }
         }
     }

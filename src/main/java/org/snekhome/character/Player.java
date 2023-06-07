@@ -1,11 +1,13 @@
 package org.snekhome.character;
 
+import org.snekhome.environment.Direction;
+import org.snekhome.environment.Movement;
 import org.snekhome.environment.Type;
 import org.snekhome.inventory.*;
 
 import java.util.Objects;
 
-public class Player extends Character {
+public class Player extends Character implements Movement {
     public String playerName;
     private Inventory inventory;
     public int defense;
@@ -91,5 +93,15 @@ public class Player extends Character {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public void move(Direction direction) {
+        switch (direction) {
+            case NORTH -> posY--;
+            case EAST -> posX++;
+            case SOUTH -> posY++;
+            case WEST -> posX--;
+        }
     }
 }
