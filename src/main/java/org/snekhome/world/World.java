@@ -1,6 +1,8 @@
 package org.snekhome.world;
 
 import org.snekhome.character.Enemy;
+import org.snekhome.character.Player;
+import org.snekhome.inventory.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +14,13 @@ public class World {
     public int height = 22;
     public List<Enemy> enemies;
     public World() {
+        createPlane();
+        this.enemies = new ArrayList<>();
+        generateEnemies();
+        populatePlane();
+    }
+
+    public World(Player player, List<Enemy> enemies, List<Item> items) {
         createPlane();
         this.enemies = new ArrayList<>();
         generateEnemies();
@@ -55,7 +64,7 @@ public class World {
         for (Enemy enemy : enemies) {
             if ((enemy.posX > 2 && enemy.posX < width - 2) && (enemy.posY > 2 && enemy.posY < height - 2)) {
                 if (enemy.isAlive) {
-                    this.plane[enemy.posX][enemy.posY] = Tile.EMEMY;
+                    this.plane[enemy.posX][enemy.posY] = Tile.ENEMY;
                 } else {
                     this.plane[enemy.posX][enemy.posY] = Tile.ENEMY_DEAD;
                 }
