@@ -104,4 +104,9 @@ public class Player extends Character implements Movement {
             case WEST -> posX--;
         }
     }
+
+    @Override
+    public boolean checkCollision(Object object) {
+        return false;
+    }
 }
